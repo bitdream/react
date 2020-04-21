@@ -3,23 +3,37 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {  BrowserRouter as Router,
+import {  HashRouter as Router,
   Switch,
   Route,
   Link} from 'react-router-dom'
   import Calculator from './Calculator.js'
+  import PixelEditor from './PixelEditor.js'
+  import Tab from './Tab.js'
 
 
 ReactDOM.render(
-  // <React.StrictMode>
-  //   <Router>
-  //     <Route path="/" componet={App} />
-  //   </Router>
-  // </React.StrictMode>,
-
   <React.StrictMode>
-    <Calculator />
-</React.StrictMode>,
+    <Router>
+
+      <Tab />
+     <Switch>
+    <Route path="/" exact >
+    <App />
+      </Route>/>
+    <Route path="/calc" >
+      <Calculator/>
+    </Route>
+    <Route path="/pixel" >
+      <PixelEditor/>
+    </Route>
+    </Switch> 
+    </Router>
+  </React.StrictMode>,
+
+//   <React.StrictMode>
+//     <Calculator />
+// </React.StrictMode>,
 
   document.getElementById('root')
 );
